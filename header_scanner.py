@@ -13,7 +13,7 @@ SECURITY_HEADERS = {
 def check_security_headers(url):
     try:
         response = requests.get(url)
-        print(f"\nChecking: {url}\n{'-'*50}")
+        print(f"\n🔍 Checking: {url}\n{'-'*50}")
         headers = response.headers
 
         for header in SECURITY_HEADERS:
@@ -22,11 +22,16 @@ def check_security_headers(url):
             else:
                 print(f"[-] {header} MISSING ❌")
     except requests.exceptions.RequestException as e:
-        print(f"Error connecting to {url}: {e}")
+        print(f"❌ Error connecting to {url}: {e}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Scan a website for missing HTTP security headers.")
-    parser.add_argument("--url", required=True, help="Website URL (e.g., https://example.com)")
+    parser.add_argument("--url", help="Website URL (e.g., https://example.com)")
     args = parser.parse_args()
 
-    check_security_headers(args.url)
+    if args.url:
+        target_url = args.url
+    else:
+        target_url = input("Enter website URL (e.g., https://example.com): ")
+
+    check_security_headers(target_url)
