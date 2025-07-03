@@ -1,3 +1,4 @@
+import argparse
 import requests
 
 SECURITY_HEADERS = {
@@ -20,9 +21,12 @@ def check_security_headers(url):
                 print(f"[+] {header}: {headers[header]}")
             else:
                 print(f"[-] {header} MISSING ❌")
-    except Exception as e:
-        print(f"Error: {e}")
+    except requests.exceptions.RequestException as e:
+        print(f"Error connecting to {url}: {e}")
 
 if __name__ == "__main__":
-    target = input("Enter website URL (e.g. https://example.com): ")
-    check_security_headers(target)
+    parser = argparse.ArgumentParser(description="Scan a website for missing HTTP security headers.")
+    parser.add_argument("--url", required=True, help="Website URL (e.g., https://example.com)")
+    args = parser.parse_args()
+
+    check_security_headers(args.url)
