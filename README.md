@@ -40,9 +40,24 @@ python3 header_scanner.py --url https://github.com
 ```
 3. Enter a website URL (e.g., https://example.com) and view results.
 
+#### 🧪 Compatibility
+
+- ✅ Tested with Python 3.8 and above  
+- ✅ Works on macOS, Windows, and Linux  
+- ✅ No special setup required — just install dependencies and run!
+
+To clone the project:
+
+```bash
+git clone https://github.com/fajarsajid/web-header-scanner.git
+cd web-header-scanner
+pip install -r requirements.txt
+python3 header_scanner.py
+```
+
 ## 🧪 Example Output
 Checking: https://example.com
---------------------------------------------------
+
 [+] Content-Security-Policy: default-src 'self'
 [-] Permissions-Policy MISSING ❌
 [+] X-Frame-Options: SAMEORIGIN
