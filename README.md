@@ -35,6 +35,8 @@ pip install -r requirements.txt
 2. Run the scanner:
 ```bash
 python header_scanner.py
+or
+python3 header_scanner.py --url https://github.com
 ```
 3. Enter a website URL (e.g., https://example.com) and view results.
 
