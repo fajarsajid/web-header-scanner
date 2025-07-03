@@ -31,4 +31,31 @@ These headers help protect against:
 
 ```bash
 pip install -r requirements.txt
+```
+2. Run the scanner:
+```bash
+python header_scanner.py
+```
+3. Enter a website URL (e.g., https://example.com) and view results.
+
+## 🧪 Example Output
+Checking: https://example.com
+--------------------------------------------------
+[+] Content-Security-Policy: default-src 'self'
+[-] Permissions-Policy MISSING ❌
+[+] X-Frame-Options: SAMEORIGIN
+...
+
+## 📂 File Structure
+web-header-scanner/
+├── header_scanner.py      # Main scanner script
+├── requirements.txt       # Python dependencies
+├── .gitignore             # Files to ignore in repo
+├── LICENSE                # MIT License
+└── README.md              # This file
+
+## 👨‍💻 Author
+Fajar Sajid
+Cybersecurity & Python Enthusiast
+GitHub Profile
 
